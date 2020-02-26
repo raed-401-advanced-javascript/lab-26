@@ -6,7 +6,7 @@ const Header = ()=>{
     return (
         <header className="words-app">
             <h1>
-                words-app-react-land
+                my Counter
             </h1>
         </header>
     )
@@ -14,7 +14,7 @@ const Header = ()=>{
 
 const Footer = ()=>{
     return (
-        <footer>
+        <footer  >
             my cool footer
         </footer>
     )
@@ -26,19 +26,31 @@ class Main extends React.Component{
         this.state = {
             count:0
         }
+        this.style = {
+            higher:{
+                color:'green'
+            },
+            lower : {
+                color:'red'
+            }
+        }
+     
     }
-    increase = e =>{
+    increase = e =>{     
         this.setState({count:this.state.count + 1})    
     }
     decrase = e =>{
         this.setState({count:this.state.count -1})
     }
+    checker = ()=>{
+        return this.state.count > 0 ? this.style.higher:this.style.lower
+    }
     render(){
-        return(
-            <div>
-                <button onClick ={this.increase} >increase</button>
-                <button onClick ={this.decrase} >decrase</button>
-                <h2>{this.state.count} </h2>
+        return( 
+            <div >
+                <button style={{backgroundColor:'green'}}onClick ={this.increase} >increase</button>
+                <button style={{backgroundColor:'red'}} onClick ={this.decrase} >decrase</button>
+                <h2 style={this.checker()}>{this.state.count} </h2>
                 </div>
         )
     }
@@ -47,7 +59,7 @@ class Main extends React.Component{
 class App extends React.Component{
     render(){
         return (
-            <React.Fragment>
+            <React.Fragment >
                 <Header/>
                 <Main/>
                 <Footer/>
