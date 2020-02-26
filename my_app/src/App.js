@@ -36,8 +36,8 @@ class Main extends React.Component{
     render(){
         return(
             <div>
-                <button onClick ={this.increase} ></button>
-                <button onClick ={this.decrase} ></button>
+                <button onClick ={this.increase} >increase</button>
+                <button onClick ={this.decrase} >decrase</button>
                 <h2>{this.state.count} </h2>
                 </div>
         )
@@ -48,11 +48,9 @@ class App extends React.Component{
     render(){
         return (
             <React.Fragment>
-                <Header>
-                    <Footer>
-                        <Main/>
-                    </Footer>
-                </Header>
+                <Header/>
+                <Main/>
+                <Footer/>
             </React.Fragment>
         )
     }
